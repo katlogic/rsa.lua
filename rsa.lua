@@ -221,6 +221,7 @@ end
 end -- _ENV = rsa
 
 if not ... then
+  rsa.rnd:seed(rsa.to_n(io.open("/dev/urandom"):read(128)))
   rsa.write 'Generating new RSA key '
   k = rsa.new_key(2048,65537,rsa.pretty_cb())
   rsa.write 'Done\n'
